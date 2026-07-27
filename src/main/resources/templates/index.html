@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List | Spring Boot</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="app">
+        <header class="app-header">
+            <h1>📋 Todo List</h1>
+           
+        </header>
+
+        <section class="stats" id="stats">
+            <div class="stat-card">
+                <span class="stat-value" id="totalCount">0</span>
+                <span class="stat-label">Total</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value" id="activeCount">0</span>
+                <span class="stat-label">Active</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value" id="doneCount">0</span>
+                <span class="stat-label">Done</span>
+            </div>
+        </section>
+
+        <form id="todoForm" class="todo-form">
+            <input type="text" id="title" placeholder="What needs to be done?" required>
+            <input type="text" id="description" placeholder="Description (optional)">
+            <select id="priority">
+                <option value="LOW">Low</option>
+                <option value="MEDIUM" selected>Medium</option>
+                <option value="HIGH">High</option>
+            </select>
+            <button type="submit">Add</button>
+        </form>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <ul id="todoList" class="todo-list"></ul>
+        <p id="emptyState" class="empty-state" hidden>No todos here yet 🎉</p>
+    </div>
+
+    <script th:src="@{/js/app.js}"></script>
+</body>
+</html>
